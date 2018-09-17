@@ -1,0 +1,26 @@
+
+1、跟着 http://www.runoob.com/nodejs/nodejs-npm.html教程安装node，教程有各种命令、语法、demo。
+
+2、使用到 express 模块的时候出现 Error: Cannot find module 'express' 报错，
+可以在项目目录下执行：npm install，还有一个方法是执行：npm install express --save
+同理如果出现使用其他模块报错，执行：npm install 模块名称 --save 。
+
+
+1、使用用electron，需要按照nodeJS、npm，可以参考https://blog.csdn.net/linshuhe1/article/details/71107882 搭建electron的demo步骤
+
+2、打包electron出现问题可以参考 https://blog.csdn.net/kongxx/article/details/72572078
+
+3、electron 打包：在项目目录安装electron-package模块(npm install electron-packager -g)
+然后直接执行命令进行打包 electron-packager . 沐足管理系统 --out ./OutApp --platform=win32 --arch=x64 --electron-version=2.0.7  --overwrite --icon=./img/icon/icon.ico
+为了方便操作命令，添加scrip命令 ,用于打包electron app（可百度查在package.json配置打包）
+
+4、打包的文件里面有源码需要加密源码（Electron加密打包文件）就要用到asar，可以全局安装asar（命令 npm install asar -g），
+然后执行命令 asar pack . app.asar （.代表当前项目目录）
+执行完毕以后，在当前项目目录下可以看到app.asar文件，
+把他复制到./OutApp/.../resources/下，
+然后把resources下的app文件夹删除，
+运行resources上层的appName.exe文件可以启动应用了。
+（asar加密部分可以参考 https://blog.csdn.net/u010683528/article/details/56279647）
+
+5、NSIS 打包 Electron 生成exe安装包
+（参考https://blog.csdn.net/yu17310133443/article/details/79496499）
